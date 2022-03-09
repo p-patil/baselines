@@ -241,6 +241,9 @@ def learn(env,
     obs = env.reset()
     reset = True
 
+    print("USING PRINT FREQ 1")
+    print_freq = 1 # TODO(piyush) remove
+
     with tempfile.TemporaryDirectory() as td:
         td = checkpoint_path or td
 
@@ -288,6 +291,9 @@ def learn(env,
                 obs = env.reset()
                 episode_rewards.append(0.0)
                 reset = True
+
+            # TODO(piyush) Train swin transformer to predict next env state
+
 
             if t > learning_starts and t % train_freq == 0:
                 # Minimize the error in Bellman's equation on a batch sampled from replay buffer.
